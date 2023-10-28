@@ -1,0 +1,30 @@
+{
+  "app_name": "Vroom Voyage",
+  "header": ["Home", "Services", "Contact Us", "About Us"],
+  "landing": {
+    "top": [
+      "Vroom Voyage: Your Gateway to Adventure",
+      "Discover the enchanting beauty of road trips with Vroom Voyage - your premier car rental service in the Philippines. Whether you're here for a weekend getaway or a long-term stay, we've got the perfect ride to fuel your journey. Choose from a fleet of top-notch vehicles, explore breathtaking landscapes, and embark on unforgettable adventures."
+    ],
+    "calendar": ["Choose where to pickup", "Select dates"],
+    "steps": [
+      "How it works!",
+      "Choose pickup location",
+      "Check pick-up dates",
+      "Wait for our response",
+      "Select your preferred dates of booking, if they are available",
+      "After booking, wait for our email, please prepare the necessary documents for faster processing."
+    ],
+    "pickup": [
+      "Our services are currently located in these branches:",
+      "Los Baños, Laguna",
+      "Angono, Rizal",
+      "Pasig City, NCR"
+    ],
+    "aboutUs": [
+      "About Us",
+      "Let the road be your guide!",
+      "Are you ready to embark on your next adventure? Look no further! Our car rental web app offers you the keys to your dream ride, whether it's for a weekend getaway or a cross-country journey. With a fleet of top-tier vehicles and user-friendly booking options, your road trip dreams are just a click away. Start your journey today and experience the freedom of the open road like never before."
+    ]
+  }
+}

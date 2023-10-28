@@ -4,6 +4,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        primary: "var(--primary)",
+        "primary-touch": "var(--primary-touch)",
+        secondary: "var(--secondary)",
         grey: "var(--grey)",
         "overlay-surface": "var(--overlay-surface)",
       },

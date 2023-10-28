@@ -7,7 +7,7 @@ import NavLinks from "./NavLinks";
 export default function Navbar() {
   const dispatch = useAppDispatch();
   return (
-    <nav className="w-screen min-h-navh justify-center flex items-center fixed top-0">
+    <nav className="w-screen min-h-navh justify-center flex items-center fixed top-0 bg-white z-30">
       <div className="content-container justify-between">
         <Logo />
         <ul className="list-none hidden md:flex items-center gap-4">

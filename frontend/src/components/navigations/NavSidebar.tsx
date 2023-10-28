@@ -21,7 +21,7 @@ export default function NavSidebar() {
       <div
         className={`transition-all duration-300 fixed top-0 right-0 bg-gray-800 text-white h-screen ${
           display ? "w-48" : "w-0 opacity-0 pointer-events-none"
-        } z-30 py-8 px-4 shadow-[5px_4px_18px_1px_rgb(31,41,55)]`}
+        } z-50 py-8 px-4 shadow-[5px_4px_18px_1px_rgb(31,41,55)]`}
       >
         <div className="relative" onClick={() => dispatch(toggle(false))}>
           <span className="h-3 w-3 absolute top-0 right-0 hover:text-grey cursor-pointer">
@@ -33,8 +33,8 @@ export default function NavSidebar() {
         </ul>
       </div>
       <div
-        className={`fixed inset-0 z-20 bg-overlay-surface top-0 ${
-          display ? "z-20" : "hidden"
+        className={`fixed inset-0 bg-overlay-surface top-0 ${
+          display ? "z-40" : "hidden"
         }`}
       />
     </aside>
