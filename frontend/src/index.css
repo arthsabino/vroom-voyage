@@ -7,10 +7,11 @@
 :root {
   --primary: rgba(168, 85, 247);
   --primary-touch: rgba(107, 33, 168);
-  --secondary: rgba(99, 102, 241);
+  --secondary: rgba(138, 139, 197);
   --grey: rgba(160, 160, 160, 1);
   --overlay-surface: rgba(14,18,36,.7);
   --nav-height: 4rem;
+  --desc: rgb(107, 114, 128);
 }
 
 
@@ -48,4 +49,12 @@ h2 {
 
 h3 {
   @apply text-lg xl:text-3xl sm:text-xl md:text-2xl font-extrabold;
+}
+
+h4 {
+  @apply text-base xl:text-2xl sm:text-lg md:text-xl font-extrabold;
+}
+
+.clickable-text {
+  @apply transition-all duration-300 hover:underline hover:text-gray-300;
 }

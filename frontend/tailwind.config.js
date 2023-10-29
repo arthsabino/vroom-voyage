@@ -9,6 +9,7 @@ module.exports = {
         secondary: "var(--secondary)",
         grey: "var(--grey)",
         "overlay-surface": "var(--overlay-surface)",
+        desc: "var(--desc)",
       },
       height: {
         navh: "var(--nav-height)",

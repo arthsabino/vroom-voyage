@@ -1,5 +1,5 @@
 import AboutUsPage from "@/pages/AboutUsPage";
-import HomePage from "@/pages/HomePage";
+import HomePage from "@/pages/Home/HomePage";
 import { Route, Routes } from "react-router-dom";
 export default function RouterController() {
   return (

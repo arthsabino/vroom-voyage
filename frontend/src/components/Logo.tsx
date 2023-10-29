@@ -1,10 +1,18 @@
 import logo from "@/assets/images/logo.png";
 import { Link } from "react-router-dom";
-export default function Logo() {
+import { twMerge } from "tailwind-merge";
+interface LogoProps {
+  className?: string;
+  textCls?: string;
+}
+export default function Logo({ className, textCls }: LogoProps) {
   return (
-    <Link to="/" className="flex items-center gap-1 hover:opacity-75">
+    <Link
+      to="/"
+      className={twMerge("flex items-center gap-1 hover:opacity-75", className)}
+    >
       <img src={logo} alt="Logo" height={40} width={40} />
-      <span>Vroom Voyage</span>
+      <span className={twMerge("text-black", textCls)}>Vroom Voyage</span>
     </Link>
   );
 }
