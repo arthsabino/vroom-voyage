@@ -18,8 +18,9 @@ model Car {
   imgUrl       String
   transmission String
   name         String
-  displayName String 
-  seat        Int
+  shortName    String   @unique
+  displayName  String
+  seat         Int
   model        String
   petrol       String
   createdAt    DateTime @default(now())

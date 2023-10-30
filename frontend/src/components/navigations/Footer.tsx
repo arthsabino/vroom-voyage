@@ -25,7 +25,7 @@ export default function Footer() {
               <div className="h-[2px] bg-gray-50 my-4" />
               <ul className="list-none flex flex-col gap-2 items-start">
                 {link.links.map((l) => (
-                  <Link to={l[1]} className="text-sm clickable-text">
+                  <Link to={l[1]} key={l[1]} className="text-sm footer-link">
                     {l[0]}
                   </Link>
                 ))}
@@ -38,18 +38,18 @@ export default function Footer() {
             <ul className="list-none flex flex-col gap-4 items-start">
               <li>
                 <a
-                  className="flex items-center gap-2 clickable-text group"
+                  className="flex items-center gap-2 footer-link group"
                   href="tel:09175213294"
                 >
                   <div className="rounded-full bg-primary p-2 group-hover:bg-primary-touch">
                     <span className="h-4 w-4 text-white">{svgs.phone}</span>
                   </div>
-                  <span className="">+63 917 521 3294</span>
+                  <span>+63 917 521 3294</span>
                 </a>
               </li>
               <li>
                 <a
-                  className="flex items-center gap-2 clickable-text group"
+                  className="flex items-center gap-2 footer-link group"
                   href="mailto:arthjoseph.sabino@gmail.com"
                 >
                   <div className="rounded-full bg-primary p-2 group-hover:bg-primary-touch">

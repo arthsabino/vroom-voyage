@@ -5,7 +5,7 @@ export default function AboutUsSection() {
     landing: { aboutUs },
   } = useAppSelector((state) => state.language.lang);
   return (
-    <section className="mt-4 py-4 sm:py-8 bg-gray-100 md:flex-row flex-col w-full flex flex-wrap items-center justify-center pr-7 pl-7 md:pl-0 md:pr-0">
+    <section className="mt-4 py-4 sm:py-8 bg-alt-surface md:flex-row flex-col w-full flex flex-wrap items-center justify-center pr-7 pl-7 md:pl-0 md:pr-0">
       <div className="sm:w-auto sm:h-60 sm:ml-[-50px]">
         <img src={wigo} alt="Wigo" className="w-auto h-full" />
       </div>

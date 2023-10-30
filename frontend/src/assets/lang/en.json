@@ -1,10 +1,10 @@
 {
-  "app_name": "Vroom Voyage",
+  "app_name": "VroomVoyage",
   "header": ["Home", "Services", "Contact Us", "About Us"],
   "landing": {
     "top": [
-      "Vroom Voyage: Your Gateway to Adventure",
-      "Discover the enchanting beauty of road trips with Vroom Voyage - your premier car rental service in the Philippines. Whether you're here for a weekend getaway or a long-term stay, we've got the perfect ride to fuel your journey. Choose from a fleet of top-notch vehicles, explore breathtaking landscapes, and embark on unforgettable adventures."
+      "VroomVoyage: Your Gateway to Adventure",
+      "Discover the enchanting beauty of road trips with VroomVoyage - your premier car rental service in the Philippines. Whether you're here for a weekend getaway or a long-term stay, we've got the perfect ride to fuel your journey. Choose from a fleet of top-notch vehicles, explore breathtaking landscapes, and embark on unforgettable adventures."
     ],
     "calendar": [
       "Choose where to pickup",
@@ -17,7 +17,7 @@
       "Check pick-up dates",
       "Wait for our response",
       "Select your preferred dates of booking, if they are available",
-      "After booking, wait for our email, please prepare the necessary documents for faster processing."
+      "After booking, wait for our email, please prepare all the necessary documents for faster processing."
     ],
     "pickup": [
       "Our services are currently located in these branches:",
@@ -32,10 +32,93 @@
     ],
     "sweetDeals": [
       "Sweet Deals & Offers",
-      "At Vroom Voyage, we offer an extensive fleet of meticulously maintained vehicles, each designed to provide you with a comfortable and safe journey. From sleek and efficient city cars to spacious SUVs and adventure-ready off-road vehicles, we have the perfect set of wheels to match your needs and preferences."
+      "At VroomVoyage, we offer an extensive fleet of meticulously maintained vehicles, each designed to provide you with a comfortable and safe journey. From sleek and efficient city cars to spacious SUVs and adventure-ready off-road vehicles, we have the perfect set of wheels to match your needs and preferences."
     ]
   },
   "car": ["/Day", "/Month"],
+  "services": {
+    "welcome": [
+      "Welcome to Our Services",
+      "Services offered",
+      "At",
+      "we're here to transform your travel experience. Our array of premium services ensures that your journey is not just a trip, but a remarkable adventure. Whether you're a globe-trotter, a business traveler, or simply seeking a memorable vacation, we've got you covered.",
+      "Car Rental",
+      "Discover freedom on four wheels. Our car rental service provides you with the keys to explore your destination at your own pace. From compact cars to spacious SUVs, we offer a wide range of vehicles to suit your needs. Our well-maintained fleet ensures reliability, so you can focus on the road ahead.",
+      "Travel Guide",
+      "Unlock the secrets of your destination with our expert travel guides. Our local experts are passionate about sharing their knowledge and love for the places they call home. They'll take you off the beaten path, uncover hidden gems, and offer valuable insights to make your journey truly unforgettable."
+    ],
+    "chooseUs": [
+      "Why Choose Us?",
+      [
+        "Experience:",
+        "With years of experience in the travel industry, we know what it takes to make your trip extraordinary."
+      ],
+      [
+        "Customer-Centric:",
+        "Your satisfaction is our top priority. We tailor our services to meet your unique preferences and needs."
+      ],
+      [
+        "Safety:",
+        "We prioritize your safety and well-being, ensuring all our vehicles meet the highest standards of maintenance and cleanliness."
+      ],
+      [
+        "Local Expertise:",
+        "Our travel guides are locals who are passionate about sharing their insider knowledge, enhancing your travel experience."
+      ],
+      [
+        "Convenience:",
+        "We offer easy booking and transparent pricing to make your journey stress-free and enjoyable."
+      ]
+    ],
+    "journey": [
+      "Let Us Enhance Your Journey",
+      "Whether you're planning a road trip, a family vacation, or a business excursion, our car rental and travel guide services will add an extra layer of magic to your adventure. Join us, and let's embark on an unforgettable journey together.",
+      "Get Started",
+      "Ready to start your next adventure? Choose your preferred service, book with ease, and get ready to explore the world in a whole new way.",
+      "At",
+      "your journey is our passion. We look forward to being a part of your next adventure."
+    ]
+  },
+  "contactUs": [
+    "Get in Touch with VroomVoyage",
+    "At VroomVoyage, we're committed to providing you with an exceptional car rental experience. Whether you have a question, need assistance, or just want to say hello, we're here to listen. Feel free to reach out to us through any of the following channels:"
+  ],
+  "email": [
+    "Email: ",
+    "Drop us a message at",
+    "arthjoseph.sabino@gmail.com,",
+    "and our dedicated team will get back to you as swiftly as a sports car on an open road."
+  ],
+  "phone": [
+    "Phone: ",
+    "Prefer the personal touch? Give us a call at ",
+    "+63 917 521 3294.",
+    "Our friendly customer service agents are standing by to assist you, just a ring away.",
+    "No matter what's on your mind, we're here to ensure your journey with VroomVoyage is smooth, memorable, and truly unforgettable. Your feedback, questions, and suggestions drive us to constantly improve and innovate, so don't hesitate to reach out.",
+    "Let's keep the wheels turning and the conversation rolling. Contact VroomVoyage today, and let's make your car rental experience one for the road!"
+  ],
+  "aboutUsPage": [
+    "About VroomVoyage",
+    "Welcome to VroomVoyage - Your Ultimate Car Rental and Travel Guide Solution!",
+    "At VroomVoyage, we are passionate about making your travel experience memorable and hassle-free. With three convenient locations across the Philippines, we provide top-notch car rental services and personalized travel guides to enhance your journey.",
+    "Our Locations:",
+    "Los Baños, Laguna",
+    "Angono, Rizal",
+    "Pasig City, NCR",
+    "Our Services:",
+    "Car Rental:",
+    "We offer a wide range of vehicles to suit your travel needs, from compact cars to spacious SUVs, all at competitive prices.",
+    "Travel Guide Services:",
+    "Our experienced guides are ready to show you the hidden gems, cultural treasures, and stunning landscapes of the Philippines.",
+    "Why Choose VroomVoyage?",
+    "Convenience:",
+    "Our multiple locations make it easy to pick up and return your rental vehicle.",
+    "Quality:",
+    "We maintain our vehicles in top condition to ensure a safe and comfortable journey.",
+    "Expertise:",
+    "Our travel guides are knowledgeable and passionate about showcasing the best of the Philippines.",
+    "Join us on your next adventure and experience the beauty of the Philippines with VroomVoyage. We're here to make your journey exceptional!"
+  ],
   "footer": {
     "title": "Reserve your vehicle today and set out on a memorable road trip filled with adventure and discovery",
     "footerLinks": [
@@ -43,13 +126,13 @@
         "header": "Services",
         "links": [
           ["Book a Ride", "/services?tab=book-ride"],
-          ["Travel guide", "/services?tab=travel guide"]
+          ["Travel guide", "/services?tab=travel-guide"]
         ]
       },
       {
         "header": "Home",
         "links": [
-          ["Home", "/home"],
+          ["Home", "/"],
           ["About", "/about-us"]
         ]
       }

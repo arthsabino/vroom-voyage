@@ -4,3 +4,7 @@ export const formatPrice = (price: number) => {
     currency: "PHP",
   });
 };
+
+export const dateToMMDDYYY = (date: Date) => {
+  return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+};

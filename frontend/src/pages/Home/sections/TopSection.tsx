@@ -13,7 +13,7 @@ export default function TopSection() {
         <h1 className=" sm:leading-snug lg:leading-normal xl:leading-relaxed">
           {top[0]}
         </h1>
-        <p className="mt-4 md:mt-8 text-xs lg:text-sm xl:text-lg sm:max-h-full max-h-12 text-gray-800 overflow-hidden">
+        <p className="mt-4 md:mt-8 text-xs lg:text-sm xl:text-lg sm:max-h-full max-h-12 text-top-desc overflow-hidden">
           {top[1]}
         </p>
         <div className="md:flex-row flex flex-col items-start md:items-center gap-4 mt-4">

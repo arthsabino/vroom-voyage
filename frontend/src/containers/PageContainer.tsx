@@ -9,7 +9,7 @@ export default function PageContainer({ title, children }: PageContainerProps) {
   return (
     <>
       <Helmet>
-        <title>{`${title} | Vroom Voyage`}</title>
+        <title>{`${title} | VroomVoyage`}</title>
       </Helmet>
       <div className="mt-navh py-4">{children}</div>
     </>

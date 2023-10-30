@@ -14,7 +14,7 @@ export default function HowItWorksSection() {
           <p>{pickup[0]}</p>
           <ul className="flex flex-col gap-2 mt-4 list-inside list-disc w-full">
             {pickup.slice(1).map((p) => (
-              <li>{p}</li>
+              <li key={p}>{p}</li>
             ))}
           </ul>
         </InfoBox>

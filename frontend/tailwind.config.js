@@ -9,7 +9,10 @@ module.exports = {
         secondary: "var(--secondary)",
         grey: "var(--grey)",
         "overlay-surface": "var(--overlay-surface)",
+        "option-touch": "var(--option-touch)",
         desc: "var(--desc)",
+        "top-desc": "var(--top-desc)",
+        "alt-surface": "var(--alt-surface)",
       },
       height: {
         navh: "var(--nav-height)",

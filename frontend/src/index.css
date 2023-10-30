@@ -12,6 +12,9 @@
   --overlay-surface: rgba(14,18,36,.7);
   --nav-height: 4rem;
   --desc: rgb(107, 114, 128);
+  --option-touch: rgb(232, 237, 243);
+  --top-desc: rgb(31, 41, 55);
+  --alt-surface: rgb(243, 244, 246)
 }
 
 
@@ -35,6 +38,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+::-webkit-scrollbar,
+.scrollbar-show::-webkit-scrollbar {
+  @apply block w-[4px] h-[5px];
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--overlay-surface);
+  @apply rounded-[6.39px];
+}
 .content-container {
   @apply flex h-full w-full items-center px-2 sm:px-4 md:px-8 lg:px-12;
 }
@@ -55,6 +68,15 @@ h4 {
   @apply text-base xl:text-2xl sm:text-lg md:text-xl font-extrabold;
 }
 
-.clickable-text {
+.footer-link {
   @apply transition-all duration-300 hover:underline hover:text-gray-300;
+}
+
+.clickable-text {
+  @apply transition-all duration-300 hover:underline hover:text-primary text-black;
+}
+
+.react-calendar__tile--active:enabled:hover, .react-calendar__tile--active:enabled:focus, .react-calendar__tile--active {
+  background: #1087ff !important;
+  background-color: #1087ff !important;
 }
