@@ -46,7 +46,7 @@ function ServicesOffered({ imgSrc, title, desc }: ServicesOfferedProps) {
         <img
           src={imgSrc}
           alt={title}
-          className="w-auto h-full rounded-t-lg md:rounded-l-lg"
+          className="w-auto h-full rounded-t md:rounded-l"
         />
       </div>
       <div className="flex-col flex p-4 w-full md:w-3/5 md:items-start items-center">

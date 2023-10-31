@@ -36,9 +36,9 @@ export default function CalendarDropdown({
   //   }
   // }, [onSelect, dateRange]);
   return (
-    <div className="relative">
+    <div className="relative w-full">
       <div
-        className={`flex items-center gap-2 p-2 min-w-[250px] rounded-lg cursor-pointer ${borderCls}`}
+        className={`flex items-center gap-2 p-2 min-w-[250px] rounded cursor-pointer ${borderCls}`}
         onClick={() => {
           setShowCalendar(!showCalendar);
         }}

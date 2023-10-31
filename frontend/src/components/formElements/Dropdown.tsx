@@ -23,13 +23,13 @@ export default function Dropdown({
   const borderCls = `border-2 ${valid ? "border-transparent" : "border-error"}`;
   return (
     <div
-      className="relative min-w-[200px]"
+      className="relative min-w-[200px] w-full"
       onClick={() => {
         setShow(!show);
       }}
     >
       <div
-        className={`flex items-center gap-2 p-2 rounded-lg w-full cursor-pointer ${borderCls}`}
+        className={`flex items-center gap-2 p-2 rounded cursor-pointer ${borderCls}`}
       >
         {icon ? <span className="h-4 w-4 text-primary">{icon}</span> : null}
         <input
@@ -46,7 +46,7 @@ export default function Dropdown({
         </span>
       </div>
       <ul
-        className={`transition-all duration-250 absolute w-full rounded-lg shadow-2xl top-10 z-10 bg-white flex flex-col gap-2 py-2 ${
+        className={`transition-all duration-250 absolute w-full rounded shadow-2xl top-10 z-10 bg-white flex flex-col gap-2 py-2 ${
           show ? "h-fit" : "h-0 opacity-0 pointer-events-none"
         }`}
         onMouseLeave={() => {

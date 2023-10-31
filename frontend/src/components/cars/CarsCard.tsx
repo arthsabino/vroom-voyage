@@ -10,7 +10,7 @@ interface CarsCardProps {
 export default function CarsCard({ car }: CarsCardProps) {
   const { car: carStr } = useAppSelector((state) => state.language.lang);
   return (
-    <div className="rounded-lg py-6 px-4 flex flex-col w-full shadow-2xl sm:max-w-full max-w-xs">
+    <div className="rounded py-6 px-4 flex flex-col w-full shadow-2xl sm:max-w-full max-w-xs">
       <div className="flex justify-center">
         <img
           src={car.imgUrl}

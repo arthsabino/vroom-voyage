@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 import { svgs } from "../Image";
 import Logo from "../Logo";
 export default function Footer() {
-  const { footer } = useAppSelector((state) => state.language.lang);
+  const { footer, phone, email } = useAppSelector(
+    (state) => state.language.lang
+  );
 
   return (
     <footer className="bg-secondary  text-white relative overflow-hidden">
@@ -39,23 +41,23 @@ export default function Footer() {
               <li>
                 <a
                   className="flex items-center gap-2 footer-link group"
-                  href="tel:09175213294"
+                  href={`tel:${phone[2]}`}
                 >
                   <div className="rounded-full bg-primary p-2 group-hover:bg-primary-touch">
                     <span className="h-4 w-4 text-white">{svgs.phone}</span>
                   </div>
-                  <span>+63 917 521 3294</span>
+                  <span>{phone[2]}</span>
                 </a>
               </li>
               <li>
                 <a
                   className="flex items-center gap-2 footer-link group"
-                  href="mailto:arthjoseph.sabino@gmail.com"
+                  href={`mailto:${email[2]}`}
                 >
                   <div className="rounded-full bg-primary p-2 group-hover:bg-primary-touch">
                     <span className="h-4 w-4 text-white">{svgs.mail}</span>
                   </div>
-                  <span>arthjoseph.sabino@gmail.com</span>
+                  <span>{email[2]}</span>
                 </a>
               </li>
             </ul>

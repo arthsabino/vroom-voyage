@@ -21,10 +21,7 @@ export default function ContactUsPage() {
           <h2 className="mt-4">{email[0]}</h2>
           <p className="text-desc">
             <span>{email[1]}</span>
-            <a
-              className="clickable-text px-1"
-              href="mailto:arthjoseph.sabino@gmail.com"
-            >
+            <a className="clickable-text px-1" href={`mailto:${email[2]}`}>
               {email[2]}
             </a>
             <span>{email[3]}</span>
@@ -34,7 +31,7 @@ export default function ContactUsPage() {
           <h2 className="mt-4">{phone[0]}</h2>
           <p className="text-desc">
             <span>{phone[1]}</span>
-            <a className="clickable-text px-1" href="tel:09175213294">
+            <a className="clickable-text px-1" href={`tel:${phone[2]}`}>
               {phone[2]}
             </a>
             <span>{phone[3]}</span>
