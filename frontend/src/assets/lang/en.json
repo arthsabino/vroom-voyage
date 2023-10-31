@@ -35,7 +35,7 @@
       "At VroomVoyage, we offer an extensive fleet of meticulously maintained vehicles, each designed to provide you with a comfortable and safe journey. From sleek and efficient city cars to spacious SUVs and adventure-ready off-road vehicles, we have the perfect set of wheels to match your needs and preferences."
     ]
   },
-  "car": ["/Day", "/Month"],
+  "car": ["/Day", "/Month", "seater"],
   "services": {
     "welcome": [
       "Welcome to Our Services",
@@ -81,7 +81,8 @@
   },
   "contactUs": [
     "Get in Touch with VroomVoyage",
-    "At VroomVoyage, we're committed to providing you with an exceptional car rental experience. Whether you have a question, need assistance, or just want to say hello, we're here to listen. Feel free to reach out to us through any of the following channels:"
+    "At",
+    ", we're committed to providing you with an exceptional car rental experience. Whether you have a question, need assistance, or just want to say hello, we're here to listen. Feel free to reach out to us through any of the following channels:"
   ],
   "email": [
     "Email: ",
@@ -138,5 +139,8 @@
       }
     ],
     "contact": "Contact"
+  },
+  "messages": {
+    "bookRide": ["Location is required", "Dates are required"]
   }
 }

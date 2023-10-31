@@ -14,7 +14,8 @@
   --desc: rgb(107, 114, 128);
   --option-touch: rgb(232, 237, 243);
   --top-desc: rgb(31, 41, 55);
-  --alt-surface: rgb(243, 244, 246)
+  --alt-surface: rgb(243, 244, 246);
+  --error: rgba(251, 91, 91, 1);
 }
 
 

@@ -1,4 +1,3 @@
-import "react-calendar/dist/Calendar.css";
 import { HelmetProvider } from "react-helmet-async";
 import "./App.css";
 import ScrollToTop from "./components/ScrollToTop";

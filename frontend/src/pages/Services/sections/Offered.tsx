@@ -13,13 +13,13 @@ export default function Offered() {
       <h1 className="text-center">{welcome[0]}</h1>
       <p className="text-top-desc mt-4">
         <span>{welcome[2]}</span>
-        <Link to={"/"} className="font-bold px-1">
+        <Link to={"/"} className="font-bold px-1 clickable-text">
           {app_name}
         </Link>
         <span>{welcome[3]}</span>
       </p>
       <h2 className="self-start mt-8">{welcome[1]}</h2>
-      <div className="grid xl:grid-cols-2 grid-cols-1 gap-8 mt-4">
+      <div className="grid xl:grid-cols-2 grid-cols-1 gap-8 mt-6">
         <ServicesOffered
           imgSrc={rentCar}
           title={welcome[4]}
@@ -41,7 +41,7 @@ interface ServicesOfferedProps {
 }
 function ServicesOffered({ imgSrc, title, desc }: ServicesOfferedProps) {
   return (
-    <div className="flex flex-col md:flex-row md:items-stretch items-start md:justify-start justify-center gap-1 shadow-xl bg-white w-full hover:scale-[1.02] transition-all duration-300 cursor-pointer">
+    <div className="flex flex-col md:flex-row md:items-stretch items-start md:justify-start justify-center gap-1 shadow-xl bg-white w-full group hover:scale-[1.02] transition-all duration-300 cursor-pointer">
       <div className="w-full md:w-2/5">
         <img
           src={imgSrc}
@@ -50,7 +50,9 @@ function ServicesOffered({ imgSrc, title, desc }: ServicesOfferedProps) {
         />
       </div>
       <div className="flex-col flex p-4 w-full md:w-3/5 md:items-start items-center">
-        <h4>{title}</h4>
+        <h4 className="group-hover:text-primary transition-all duration-300">
+          {title}
+        </h4>
         <p className="text-desc text-sm mt-4">{desc}</p>
       </div>
     </div>

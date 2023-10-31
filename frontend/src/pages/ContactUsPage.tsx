@@ -1,15 +1,22 @@
 import { useAppSelector } from "@/app/hooks";
 import PageContainer from "@/containers/PageContainer";
+import { Link } from "react-router-dom";
 
 export default function ContactUsPage() {
-  const { contactUs, email, phone } = useAppSelector(
+  const { contactUs, email, phone, app_name } = useAppSelector(
     (state) => state.language.lang
   );
   return (
     <PageContainer title="Contact Us">
       <section className="mt-4 py-4 content-container flex flex-col gap-4">
         <h1>{contactUs[0]}</h1>
-        <p className="text-top-desc mt-4">{contactUs[1]}</p>
+        <p className="text-top-desc mt-4">
+          <span>{contactUs[1]}</span>
+          <Link to={"/"} className="font-bold clickable-text pl-1">
+            {app_name}
+          </Link>
+          <span>{contactUs[2]}</span>
+        </p>
         <div className="w-full flex flex-col gap-4">
           <h2 className="mt-4">{email[0]}</h2>
           <p className="text-desc">

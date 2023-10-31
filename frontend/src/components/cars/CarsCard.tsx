@@ -34,8 +34,8 @@ export default function CarsCard({ car }: CarsCardProps) {
         </div>
       </div>
       <div className="h-[2px] bg-desc my-4" />
-      <div className="grid grid-cols-3">
-        <CarDesc icon={svgs.seat} desc={car.seat} />
+      <div className="flex flex-wrap gap-4 justify-between">
+        <CarDesc icon={svgs.seat} desc={`${car.seat}-${carStr[2]}`} />
         <CarDesc icon={svgs.transmission} desc={car.transmission} />
         <CarDesc icon={svgs.petrol} desc={car.petrol} />
       </div>

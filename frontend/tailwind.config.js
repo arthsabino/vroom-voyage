@@ -13,6 +13,7 @@ module.exports = {
         desc: "var(--desc)",
         "top-desc": "var(--top-desc)",
         "alt-surface": "var(--alt-surface)",
+        error: "var(--error)",
       },
       height: {
         navh: "var(--nav-height)",

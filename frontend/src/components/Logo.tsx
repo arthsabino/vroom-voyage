@@ -11,7 +11,7 @@ export default function Logo({ className, textCls }: LogoProps) {
       to="/"
       className={twMerge("flex items-center gap-1 hover:opacity-75", className)}
     >
-      <img src={logo} alt="Logo" height={40} width={40} />
+      <img src={logo} alt="VroomVoyage Logo" height={40} width={40} />
       <span className={twMerge("text-black", textCls)}>VroomVoyage</span>
     </Link>
   );
