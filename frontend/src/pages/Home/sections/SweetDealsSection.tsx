@@ -1,6 +1,6 @@
+import { Car } from "@/@types/car";
 import { useAppSelector } from "@/app/hooks";
 import CarsCard from "@/components/cars/CarsCard";
-import { Car } from "@prisma/client";
 
 export default function SweetDealsSection() {
   const {
@@ -10,6 +10,7 @@ export default function SweetDealsSection() {
     id: "adawdawd",
     ratePerDay: 35,
     ratePerMonth: 1050,
+    shortName: "wigo",
     make: "Wigo",
     imgUrl:
       "https://res.cloudinary.com/ajps-bucket/image/upload/v1698557745/vroom-voyage-images/lolybff54yypwv0qypfn.png",

@@ -1,3 +1,4 @@
+import { Car } from "@/@types/car";
 import { BookARideForm } from "@/@types/formData";
 import { useAppSelector } from "@/app/hooks";
 import NoData from "@/components/NoData";
@@ -5,7 +6,6 @@ import Button from "@/components/buttons/Button";
 import CarsCard from "@/components/cars/CarsCard";
 import PageContainer from "@/containers/PageContainer";
 import { bookARideDefaultValues as defaultValues } from "@/lib/consts";
-import { Car } from "@prisma/client";
 import { useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { useSearchParams } from "react-router-dom";

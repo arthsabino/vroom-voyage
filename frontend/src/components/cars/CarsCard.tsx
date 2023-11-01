@@ -1,6 +1,6 @@
+import { Car } from "@/@types/car";
 import { useAppSelector } from "@/app/hooks";
 import { formatPrice } from "@/lib/format";
-import { Car } from "@prisma/client";
 import { svgs } from "../Image";
 import Button from "../buttons/Button";
 
