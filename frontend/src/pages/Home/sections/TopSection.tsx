@@ -5,6 +5,7 @@ import Button from "@/components/buttons/Button";
 
 export default function TopSection() {
   const {
+    btns,
     landing: { top },
   } = useAppSelector((state) => state.language.lang);
   return (
@@ -17,7 +18,7 @@ export default function TopSection() {
           {top[1]}
         </p>
         <div className="md:flex-row flex flex-col items-start md:items-center gap-4 mt-4">
-          <Button theme="filled">Book your ride</Button>
+          <Button theme="filled">{btns[0]}</Button>
         </div>
       </div>
       <div className="w-1/2 flex flex-col relative mt-28 z-[-1]">

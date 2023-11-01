@@ -1,6 +1,6 @@
 import { useAppSelector } from "@/app/hooks";
 import { svgs } from "@/components/Image";
-import InfoBox from "@/components/landing/InfoBox";
+import InfoBox from "@/components/box/InfoBox";
 
 export default function HowItWorksSection() {
   const {

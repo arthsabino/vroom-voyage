@@ -5,6 +5,7 @@ import Calendar from "react-calendar";
 import { svgs } from "../Image";
 
 interface CalendarDropdownProps {
+  defaultValue?: DateRange;
   input: InputProps;
   valid?: boolean;
   errMessage?: string | null;
@@ -14,27 +15,13 @@ export default function CalendarDropdown({
   input,
   valid = true,
   errMessage = null,
+  defaultValue = null,
   onSelect,
 }: CalendarDropdownProps) {
   const now = new Date();
-  const [dateRange, setDateRange] = useState<DateRange>(null);
+  const [dateRange, setDateRange] = useState<DateRange>(defaultValue);
   const [showCalendar, setShowCalendar] = useState(false);
   const borderCls = `border-2 ${valid ? "border-transparent" : "border-error"}`;
-  // useEffect(() => {
-  //   if (
-  //     onSelect &&
-  //     dateRange &&
-  //     !(dateRange instanceof Date) &&
-  //     Array.isArray(dateRange) &&
-  //     dateRange[0] &&
-  //     dateRange[1]
-  //   ) {
-  //     console.log(onSelect);
-  //     onSelect(
-  //       `${dateToMMDDYYY(dateRange[0])} - ${dateToMMDDYYY(dateRange[1])}`
-  //     );
-  //   }
-  // }, [onSelect, dateRange]);
   return (
     <div className="relative w-full">
       <div

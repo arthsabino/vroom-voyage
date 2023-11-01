@@ -21,11 +21,13 @@ export default function Offered() {
       <h2 className="self-start mt-8">{welcome[1]}</h2>
       <div className="grid xl:grid-cols-2 grid-cols-1 gap-8 mt-6">
         <ServicesOffered
+          href={"/services/car-rental"}
           imgSrc={rentCar}
           title={welcome[4]}
           desc={welcome[5]}
         />
         <ServicesOffered
+          href={"/services/travel-guide"}
           imgSrc={travelGuide}
           title={welcome[6]}
           desc={welcome[7]}
@@ -35,13 +37,17 @@ export default function Offered() {
   );
 }
 interface ServicesOfferedProps {
+  href: string;
   imgSrc: string;
   title: string;
   desc: string;
 }
-function ServicesOffered({ imgSrc, title, desc }: ServicesOfferedProps) {
+function ServicesOffered({ href, imgSrc, title, desc }: ServicesOfferedProps) {
   return (
-    <div className="flex flex-col md:flex-row md:items-stretch items-start md:justify-start justify-center gap-1 shadow-xl bg-white w-full group hover:scale-[1.02] transition-all duration-300 cursor-pointer">
+    <Link
+      className="flex flex-col md:flex-row md:items-stretch items-start md:justify-start justify-center gap-1 shadow-xl bg-white w-full group hover:scale-[1.02] transition-all duration-300 cursor-pointer"
+      to={href}
+    >
       <div className="w-full md:w-2/5">
         <img
           src={imgSrc}
@@ -55,6 +61,6 @@ function ServicesOffered({ imgSrc, title, desc }: ServicesOfferedProps) {
         </h4>
         <p className="text-desc text-sm mt-4">{desc}</p>
       </div>
-    </div>
+    </Link>
   );
 }

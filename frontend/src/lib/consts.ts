@@ -1,3 +1,5 @@
+import { BookARideForm, TravelGuideForm } from "@/@types/formData";
+
 export const SCREENS = {
   sm: "640px",
   // => @media (min-width: 640px) { ... }
@@ -13,4 +15,15 @@ export const SCREENS = {
 
   "2xl": "1536px",
   // => @media (min-width: 1536px) { ... }
+};
+
+export const bookARideDefaultValues: BookARideForm = {
+  pickup: null,
+  travelDate: null,
+};
+
+export const travelGuideDefaultValues: TravelGuideForm = {
+  name: null,
+  contact: null,
+  location: null,
 };

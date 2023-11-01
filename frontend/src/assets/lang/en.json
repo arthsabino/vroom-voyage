@@ -126,8 +126,8 @@
       {
         "header": "Services",
         "links": [
-          ["Book a Ride", "/services?tab=book-ride"],
-          ["Travel guide", "/services?tab=travel-guide"]
+          ["Book a Ride", "/services/car-rental"],
+          ["Travel guide", "/services/travel-guide"]
         ]
       },
       {
@@ -140,7 +140,22 @@
     ],
     "contact": "Contact"
   },
+  "carRental": ["Car Rental"],
+  "travelGuide": [
+    "Travel Guide",
+    "Input here...",
+    "Name",
+    "Travel Location",
+    "Contact"
+  ],
   "messages": {
-    "bookRide": ["Location is required", "Dates are required"]
-  }
+    "common": ["No data yet...", "No results found.", "Select filters"],
+    "bookRide": ["Location is required", "Dates are required"],
+    "travelGuide": [
+      "Name is required",
+      "Location is required",
+      "Contact is required"
+    ]
+  },
+  "btns": ["Book your ride!", "Filter", "Submit"]
 }
