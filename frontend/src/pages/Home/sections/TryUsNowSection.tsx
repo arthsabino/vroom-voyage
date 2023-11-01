@@ -5,14 +5,16 @@ import Button from "@/components/buttons/Button";
 import CalendarDropdown from "@/components/formElements/CalendarDropdown";
 import Dropdown from "@/components/formElements/Dropdown";
 import { bookARideDefaultValues as defaultValues } from "@/lib/consts";
+import { useLocation } from "@/lib/hooks";
 import "react-calendar/dist/Calendar.css";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 export default function TryUsNowSection() {
   const navigate = useNavigate();
+  const { locations } = useLocation();
   const {
     btns,
-    landing: { calendar, pickup },
+    landing: { calendar },
     messages: { bookRide },
   } = useAppSelector((state) => state.language.lang);
   const {
@@ -30,6 +32,7 @@ export default function TryUsNowSection() {
       `/services/car-rental?pickup=${form.pickup}&startDate=${travelDate[0]}&endDate=${travelDate[1]}`
     );
   };
+
   return (
     <section className="mt-4 pb-12 flex flex-col items-center justify-center bg-alt-surface w-full">
       <h2 className="text-black text-center my-8">{calendar[2]}</h2>
@@ -39,7 +42,7 @@ export default function TryUsNowSection() {
       >
         <Dropdown
           icon={svgs.pin}
-          options={pickup.slice(1)}
+          options={locations.map((l) => l.name)}
           onClick={(sel) =>
             setValue("pickup", sel, { shouldValidate: true, shouldDirty: true })
           }

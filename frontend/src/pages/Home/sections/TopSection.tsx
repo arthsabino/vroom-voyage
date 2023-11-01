@@ -10,7 +10,7 @@ export default function TopSection() {
   } = useAppSelector((state) => state.language.lang);
   return (
     <section className="md:min-h-[500px] flex w-full mt-4 py-4 overflow-hidden">
-      <div className="w-1/2">
+      <div className="w-[55%] md:w-1/2">
         <h1 className=" sm:leading-snug lg:leading-normal xl:leading-relaxed">
           {top[0]}
         </h1>

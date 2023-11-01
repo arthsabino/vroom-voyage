@@ -1,5 +1,10 @@
 import { BookARideForm, TravelGuideForm } from "@/@types/formData";
 
+export const API_URL = {
+  getCars: "/api/cars",
+  getFeaturedCars: "/api/cars/featured",
+  getLocations: "/api/locations",
+};
 export const SCREENS = {
   sm: "640px",
   // => @media (min-width: 640px) { ... }
