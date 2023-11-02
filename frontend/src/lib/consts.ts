@@ -3,6 +3,7 @@ import { BookARideForm, TravelGuideForm } from "@/@types/formData";
 export const API_URL = {
   getCars: "/api/cars",
   getFeaturedCars: "/api/cars/featured",
+  getAvailableCars: "/api/cars/available",
   getBranchList: "/api/branch",
   createRent: "/api/rent",
   filterRent: "/api/rent/filter",

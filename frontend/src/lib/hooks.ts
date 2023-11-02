@@ -81,3 +81,30 @@ export function useRentDatesByCarId(carId: string) {
 
   return { dates };
 }
+
+export function useAvailableCars(travelDate: string) {
+  const [availableCars, setAvailableCars] = useState<Car[]>([]);
+  useEffect(() => {
+    const fetchAvailableCars = async () => {
+      try {
+        const res = await axios.get(
+          API_URL.getAvailableCars + "?travelDate=" + travelDate
+        );
+        if (res && res.data) {
+          setAvailableCars(res.data as Car[]);
+        }
+        setAvailableCars([]);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setAvailableCars([]);
+      }
+    };
+
+    if (travelDate) {
+      fetchAvailableCars();
+    }
+  }, [travelDate]);
+
+  return { availableCars };
+}

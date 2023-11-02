@@ -5,8 +5,9 @@ import NoData from "@/components/NoData";
 import Button from "@/components/buttons/Button";
 import CarsCard from "@/components/cars/CarsCard";
 import PageContainer from "@/containers/PageContainer";
-import { bookARideDefaultValues as defaultValues } from "@/lib/consts";
+import { API_URL, bookARideDefaultValues as defaultValues } from "@/lib/consts";
 import { useBranchList } from "@/lib/hooks";
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { useSearchParams } from "react-router-dom";
@@ -18,11 +19,6 @@ export default function CarRentalPage() {
     btns,
     messages: { common },
   } = useAppSelector((state) => state.language.lang);
-  const [searchParams, setSearchParams] = useSearchParams();
-  const { branchList } = useBranchList();
-  const [cars, setCars] = useState<Car[]>([]);
-  const [displayFilter, setDisplayFilter] = useState(false);
-  const [displayResults, setDisplayResults] = useState(false);
   const bookARideForm = useForm<BookARideForm>({
     defaultValues,
   });
@@ -31,6 +27,11 @@ export default function CarRentalPage() {
     handleSubmit,
     formState: { errors },
   } = bookARideForm;
+  const [searchParams, setSearchParams] = useSearchParams();
+  const { branchList } = useBranchList();
+  const [availableCars, setAvailableCars] = useState<Car[]>([]);
+  const [displayFilter, setDisplayFilter] = useState(false);
+  const [displayResults, setDisplayResults] = useState(false);
   useEffect(() => {
     if (setValue && searchParams && branchList) {
       if (searchParams.get("pickup")) {
@@ -42,6 +43,15 @@ export default function CarRentalPage() {
           `${searchParams.get("startDate")}-${searchParams.get("endDate")}`
         );
       }
+
+      if (searchParams.get("startDate") && searchParams.get("endDate")) {
+        onSubmit({
+          pickup: null,
+          travelDate: `${searchParams.get("startDate")}-${searchParams.get(
+            "endDate"
+          )}`,
+        });
+      }
       setDisplayFilter(true);
       setSearchParams({});
     }
@@ -51,9 +61,20 @@ export default function CarRentalPage() {
     };
   }, [setValue, searchParams, setSearchParams, branchList]);
 
-  const onSubmit = (form: BookARideForm) => {
+  const onSubmit = async (form: BookARideForm) => {
     setDisplayResults(true);
-    console.log(form);
+    try {
+      const res = await axios.get(
+        API_URL.getAvailableCars + "?travelDate=" + form.travelDate
+      );
+      if (res && res.data) {
+        setAvailableCars(res.data as Car[]);
+      } else {
+        setAvailableCars([]);
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
   return (
     <PageContainer title="Car Rental">
@@ -75,14 +96,18 @@ export default function CarRentalPage() {
               </Button>
             </div>
           ) : null}
-          {cars.length > 0 ? (
-            <div className="grid sm:grid-cols-2 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 my-12 gap-4 w-full place-items-center">
-              {cars.map((c) => (
-                <CarsCard car={c} key={c.id} />
-              ))}
-            </div>
+          {displayResults ? (
+            availableCars.length > 0 ? (
+              <div className="grid sm:grid-cols-2 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 my-12 gap-4 w-full place-items-center">
+                {availableCars.map((c) => (
+                  <CarsCard car={c} key={c.id} />
+                ))}
+              </div>
+            ) : (
+              <NoData content={common[1]} />
+            )
           ) : (
-            <NoData content={common[1]} />
+            <NoData content={common[2]} />
           )}
         </form>
       </FormProvider>
