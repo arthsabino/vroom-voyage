@@ -1,3 +1,4 @@
+import { Branch } from "@/@types/util";
 import { useAppSelector } from "@/app/hooks";
 import { svgs } from "@/components/Image";
 import CalendarDropdown from "@/components/formElements/CalendarDropdown";
@@ -5,9 +6,16 @@ import Dropdown from "@/components/formElements/Dropdown";
 import { dateMMDDYYYYToTZ } from "@/lib/format";
 import { useFormContext } from "react-hook-form";
 
-export default function FilterCars() {
+interface FilterCarsProps {
+  branchList: Branch[];
+  confirmedDates?: [Date, Date][];
+}
+export default function FilterCars({
+  branchList,
+  confirmedDates,
+}: FilterCarsProps) {
   const {
-    landing: { calendar, pickup: pickupStr },
+    landing: { calendar },
     messages: { bookRide },
   } = useAppSelector((state) => state.language.lang);
 
@@ -22,7 +30,7 @@ export default function FilterCars() {
     <>
       <Dropdown
         icon={svgs.pin}
-        options={pickupStr.slice(1)}
+        options={branchList.map((l) => l.name)}
         onClick={(sel) =>
           setValue("pickup", sel, {
             shouldValidate: true,
@@ -60,6 +68,7 @@ export default function FilterCars() {
         onSelect={(sel) =>
           setValue("travelDate", sel, { shouldValidate: true })
         }
+        confirmedDates={confirmedDates}
       />
     </>
   );

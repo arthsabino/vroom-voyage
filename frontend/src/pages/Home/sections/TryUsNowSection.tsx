@@ -5,13 +5,13 @@ import Button from "@/components/buttons/Button";
 import CalendarDropdown from "@/components/formElements/CalendarDropdown";
 import Dropdown from "@/components/formElements/Dropdown";
 import { bookARideDefaultValues as defaultValues } from "@/lib/consts";
-import { useLocation } from "@/lib/hooks";
+import { useBranchList } from "@/lib/hooks";
 import "react-calendar/dist/Calendar.css";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 export default function TryUsNowSection() {
   const navigate = useNavigate();
-  const { locations } = useLocation();
+  const { branchList } = useBranchList();
   const {
     btns,
     landing: { calendar },
@@ -42,7 +42,7 @@ export default function TryUsNowSection() {
       >
         <Dropdown
           icon={svgs.pin}
-          options={locations.map((l) => l.name)}
+          options={branchList.map((l) => l.name)}
           onClick={(sel) =>
             setValue("pickup", sel, { shouldValidate: true, shouldDirty: true })
           }

@@ -1,4 +1,6 @@
 import { HelmetProvider } from "react-helmet-async";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import ScrollToTop from "./components/ScrollToTop";
 import Footer from "./components/navigations/Footer";
@@ -14,6 +16,11 @@ export default function App() {
         <Navbar />
         <NavSidebar />
         <RouterController />
+        <ToastContainer
+          className="min-w-fit text-sm md:text-base"
+          position="top-center"
+          limit={3}
+        />
         <Footer />
       </div>
     </HelmetProvider>

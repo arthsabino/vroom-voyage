@@ -3,7 +3,9 @@ import { BookARideForm, TravelGuideForm } from "@/@types/formData";
 export const API_URL = {
   getCars: "/api/cars",
   getFeaturedCars: "/api/cars/featured",
-  getLocations: "/api/locations",
+  getBranchList: "/api/branch",
+  createRent: "/api/rent",
+  filterRent: "/api/rent/filter",
 };
 export const SCREENS = {
   sm: "640px",
@@ -25,6 +27,7 @@ export const SCREENS = {
 export const bookARideDefaultValues: BookARideForm = {
   pickup: null,
   travelDate: null,
+  carId: null,
 };
 
 export const travelGuideDefaultValues: TravelGuideForm = {

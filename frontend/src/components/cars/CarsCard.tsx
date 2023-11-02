@@ -1,14 +1,18 @@
 import { Car } from "@/@types/car";
 import { useAppSelector } from "@/app/hooks";
 import { formatPrice } from "@/lib/format";
+import { useNavigate } from "react-router-dom";
 import { svgs } from "../Image";
 import Button from "../buttons/Button";
+import { CarDesc } from "./CarDesc";
 
 interface CarsCardProps {
   car: Car;
 }
 export default function CarsCard({ car }: CarsCardProps) {
   const { car: carStr } = useAppSelector((state) => state.language.lang);
+
+  const navigate = useNavigate();
   return (
     <div className="rounded py-6 px-4 flex flex-col w-full shadow-2xl sm:max-w-full max-w-xs">
       <div className="flex justify-center">
@@ -39,23 +43,15 @@ export default function CarsCard({ car }: CarsCardProps) {
         <CarDesc icon={svgs.transmission} desc={car.transmission} />
         <CarDesc icon={svgs.petrol} desc={car.petrol} />
       </div>
-      <Button theme="filled" className="mt-4 w-full">
+      <Button
+        theme="filled"
+        className="mt-4 w-full"
+        onClick={() => {
+          navigate(`/book-car/${car.shortName}`);
+        }}
+      >
         Rent Now
       </Button>
-    </div>
-  );
-}
-
-interface CarDescProps {
-  icon: JSX.Element;
-  desc: string | number;
-}
-
-function CarDesc({ icon, desc }: CarDescProps) {
-  return (
-    <div className="flex items-center gap-2">
-      <span className="h-4 w-4 text-desc">{icon}</span>
-      <span className="text-xs">{desc}</span>
     </div>
   );
 }

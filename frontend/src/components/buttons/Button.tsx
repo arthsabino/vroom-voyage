@@ -6,6 +6,7 @@ interface ButtonProps {
   theme: (typeof BTN_THEME)[number];
   className?: string;
   type?: "submit" | "button";
+  onClick?: () => void;
 }
 
 export default function Button({
@@ -13,6 +14,7 @@ export default function Button({
   theme = "filled",
   type = "button",
   className,
+  onClick,
 }: ButtonProps) {
   return (
     <button
@@ -25,6 +27,7 @@ export default function Button({
         } `,
         className
       )}
+      onClick={() => onClick?.()}
     >
       {children}
     </button>

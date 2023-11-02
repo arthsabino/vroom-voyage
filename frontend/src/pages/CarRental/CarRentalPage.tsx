@@ -6,6 +6,7 @@ import Button from "@/components/buttons/Button";
 import CarsCard from "@/components/cars/CarsCard";
 import PageContainer from "@/containers/PageContainer";
 import { bookARideDefaultValues as defaultValues } from "@/lib/consts";
+import { useBranchList } from "@/lib/hooks";
 import { useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { useSearchParams } from "react-router-dom";
@@ -18,6 +19,7 @@ export default function CarRentalPage() {
     messages: { common },
   } = useAppSelector((state) => state.language.lang);
   const [searchParams, setSearchParams] = useSearchParams();
+  const { branchList } = useBranchList();
   const [cars, setCars] = useState<Car[]>([]);
   const [displayFilter, setDisplayFilter] = useState(false);
   const [displayResults, setDisplayResults] = useState(false);
@@ -30,7 +32,7 @@ export default function CarRentalPage() {
     formState: { errors },
   } = bookARideForm;
   useEffect(() => {
-    if (setValue && searchParams) {
+    if (setValue && searchParams && branchList) {
       if (searchParams.get("pickup")) {
         setValue("pickup", searchParams.get("pickup"));
       }
@@ -47,7 +49,7 @@ export default function CarRentalPage() {
     return () => {
       setDisplayFilter(false);
     };
-  }, [setValue, searchParams, setSearchParams]);
+  }, [setValue, searchParams, setSearchParams, branchList]);
 
   const onSubmit = (form: BookARideForm) => {
     setDisplayResults(true);
@@ -61,13 +63,13 @@ export default function CarRentalPage() {
           className="content-container flex flex-col mt-4 py-4 min-h-screen"
         >
           <h1>{carRental[0]}</h1>
-          {displayFilter ? (
+          {displayFilter && branchList ? (
             <div
               className={`flex items-center ${
                 Object.keys(errors).length > 0 ? "gap-8" : "gap-4"
               } md:gap-4 md:flex-row flex-col mt-4 w-full`}
             >
-              <FilterCars />
+              <FilterCars branchList={branchList} />
               <Button type="submit" theme="filled" className="w-full md:w-auto">
                 {btns[1]}
               </Button>

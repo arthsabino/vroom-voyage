@@ -1,4 +1,5 @@
 import AboutUsPage from "@/pages/AboutUsPage";
+import BookCarPage from "@/pages/BookCar/BookCarPage";
 import CarRentalPage from "@/pages/CarRental/CarRentalPage";
 import ContactUsPage from "@/pages/ContactUsPage";
 import HomePage from "@/pages/Home/HomePage";
@@ -15,7 +16,7 @@ export default function RouterController() {
           <Route path="car-rental" element={<CarRentalPage />} />
           <Route path="travel-guide" element={<TravelGuidePage />} />
         </Route>
-
+        <Route path="book-car/:shortName" element={<BookCarPage />} />
         <Route path="contact-us" element={<ContactUsPage />} />
         <Route path="about-us" element={<AboutUsPage />} />
       </Route>

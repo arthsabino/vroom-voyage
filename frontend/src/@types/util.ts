@@ -1,4 +1,4 @@
-export type Location = {
+export type Branch = {
   createdAt: string;
   id: string;
   name: string;

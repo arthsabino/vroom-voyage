@@ -35,7 +35,16 @@
       "At VroomVoyage, we offer an extensive fleet of meticulously maintained vehicles, each designed to provide you with a comfortable and safe journey. From sleek and efficient city cars to spacious SUVs and adventure-ready off-road vehicles, we have the perfect set of wheels to match your needs and preferences."
     ]
   },
-  "car": ["/Day", "/Month", "seater"],
+  "car": [
+    "/Day",
+    "/Month",
+    "seater",
+    "Model",
+    "Make",
+    "Seats",
+    "Transmission",
+    "Petrol"
+  ],
   "services": {
     "welcome": [
       "Welcome to Our Services",
@@ -93,8 +102,8 @@
   "phone": [
     "Phone: ",
     "Prefer the personal touch? Give us a call at ",
-    "+63 917 521 3294.",
-    "Our friendly customer service agents are standing by to assist you, just a ring away.",
+    "+63 917 521 3294",
+    ". Our friendly customer service agents are standing by to assist you, just a ring away.",
     "No matter what's on your mind, we're here to ensure your journey with VroomVoyage is smooth, memorable, and truly unforgettable. Your feedback, questions, and suggestions drive us to constantly improve and innovate, so don't hesitate to reach out.",
     "Let's keep the wheels turning and the conversation rolling. Contact VroomVoyage today, and let's make your car rental experience one for the road!"
   ],
@@ -140,7 +149,7 @@
     ],
     "contact": "Contact"
   },
-  "carRental": ["Car Rental"],
+  "carRental": ["Car Rental", "Book now"],
   "travelGuide": [
     "Travel Guide",
     "Input here...",
@@ -150,7 +159,11 @@
   ],
   "messages": {
     "common": ["No data yet...", "No results found.", "Select filters"],
-    "bookRide": ["Location is required", "Dates are required"],
+    "bookRide": [
+      "Location is required",
+      "Dates are required",
+      "Booking received! We will contact you on how to proceed on the next steps!"
+    ],
     "travelGuide": [
       "Name is required",
       "Location is required",

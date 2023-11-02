@@ -1,14 +1,14 @@
 import "dotenv/config";
 import express from "express";
+import branchRoutes from "../routes/branchRoutes";
 import carRoutes from "../routes/carRoutes";
-import locationRoutes from "../routes/locationRoutes";
+import rentRoutes from "../routes/rentRoutes";
 const app = express();
-app.get("/", (req, res) => {
-  res.send("Hello World");
-});
-
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use("/api/cars", carRoutes);
-app.use("/api/locations", locationRoutes);
+app.use("/api/branch", branchRoutes);
+app.use("/api/rent", rentRoutes);
 
 app.use((req, res, next) => {
   next(Error("Endpoint not found."));

@@ -81,3 +81,7 @@ h4 {
   background: #1087ff !important;
   background-color: #1087ff !important;
 }
+
+.react-calendar__tile:disabled {
+  background-color: var(--grey) !important;
+}

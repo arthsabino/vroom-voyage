@@ -10,13 +10,61 @@ interface CalendarDropdownProps {
   valid?: boolean;
   errMessage?: string | null;
   onSelect: (n: string) => void;
+  confirmedDates?: [Date, Date][];
 }
+
+const isInsideDate = (currDate: Date, startDate: Date, endDate: Date) => {
+  return (
+    currDate.getFullYear() >= startDate.getFullYear() &&
+    currDate.getMonth() >= startDate.getMonth() &&
+    currDate.getDate() >= startDate.getDate() &&
+    currDate.getFullYear() <= endDate.getFullYear() &&
+    currDate.getMonth() <= endDate.getMonth() &&
+    currDate.getDate() <= endDate.getDate()
+  );
+};
+
+const checkIfInDates = (
+  date: DateRange,
+  confirmedDates: [Date, Date][] | undefined
+) => {
+  if (confirmedDates) {
+    for (let i = 0; i < confirmedDates.length; i++) {
+      const dateEl = confirmedDates[i];
+      if (date && date instanceof Date) {
+        if (isInsideDate(date, dateEl[0], dateEl[1])) {
+          return true;
+        }
+      }
+      if (
+        date &&
+        !(date instanceof Date) &&
+        Array.isArray(date) &&
+        date[0] &&
+        date[1]
+      ) {
+        if (
+          isInsideDate(date[0], dateEl[0], dateEl[1]) ||
+          isInsideDate(date[1], dateEl[0], dateEl[1]) ||
+          isInsideDate(dateEl[0], date[0], date[1]) ||
+          isInsideDate(dateEl[1], date[0], date[1])
+        ) {
+          return true;
+        }
+      }
+    }
+  }
+
+  return false;
+};
+
 export default function CalendarDropdown({
   input,
   valid = true,
   errMessage = null,
   defaultValue = null,
   onSelect,
+  confirmedDates,
 }: CalendarDropdownProps) {
   const now = new Date();
   const [dateRange, setDateRange] = useState<DateRange>(defaultValue);
@@ -52,7 +100,9 @@ export default function CalendarDropdown({
           minDate={now}
           selectRange
           returnValue="range"
+          tileDisabled={({ date }) => checkIfInDates(date, confirmedDates)}
           onChange={(value, _) => {
+            if (checkIfInDates(value, confirmedDates)) return;
             setDateRange(value);
             setShowCalendar(false);
             if (
@@ -68,7 +118,7 @@ export default function CalendarDropdown({
             }
           }}
           value={dateRange}
-          className={`absolute top-12 left-0`}
+          className={`absolute top-12 left-0 z-20`}
         />
       )}
     </div>
