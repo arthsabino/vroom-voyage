@@ -20,6 +20,10 @@ export default function App() {
           className="min-w-fit text-sm md:text-base"
           position="top-center"
           limit={3}
+          toastStyle={{
+            backgroundColor: "rgb(31, 41, 55)",
+            color: "#fff",
+          }}
         />
         <Footer />
       </div>

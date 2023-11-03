@@ -44,11 +44,13 @@ export const getAvailableCars: RequestHandler = async (req, res, next) => {
     const cars = await prisma.car.findMany({
       where: {
         rent: {
-          some: {
+          every: {
             NOT: {
-              AND: [
+              OR: [
                 { startDate: { gte: startDate }, endDate: { lte: startDate } },
-                { startDate: { gte: endDate }, endDate: { lte: endDate } },
+                { startDate: { lte: endDate }, endDate: { gte: endDate } },
+                { startDate: { gte: startDate, lte: endDate } },
+                { endDate: { gte: startDate, lte: endDate } },
               ],
             },
           },

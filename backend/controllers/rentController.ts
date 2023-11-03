@@ -41,6 +41,7 @@ export const filterRent: RequestHandler = async (req, res, next) => {
       where: {
         carId: carId as string,
         rentStatusId: reservedRentStatusFromDB?.id,
+        endDate: { gte: new Date() },
       },
     });
     res.status(200).json(rents);

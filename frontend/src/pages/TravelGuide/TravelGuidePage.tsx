@@ -3,8 +3,14 @@ import { useAppSelector } from "@/app/hooks";
 import Button from "@/components/buttons/Button";
 import InputText from "@/components/formElements/InputText";
 import PageContainer from "@/containers/PageContainer";
-import { travelGuideDefaultValues as defaultValues } from "@/lib/consts";
+import {
+  API_URL,
+  travelGuideDefaultValues as defaultValues,
+} from "@/lib/consts";
+import axios from "axios";
 import { FormProvider, useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function TravelGuidePage() {
   const {
@@ -12,6 +18,7 @@ export default function TravelGuidePage() {
     travelGuide,
     messages: { travelGuide: msgStr },
   } = useAppSelector((state) => state.language.lang);
+  const navigate = useNavigate();
   const travelGuideForm = useForm<TravelGuideForm>({
     defaultValues,
   });
@@ -20,8 +27,16 @@ export default function TravelGuidePage() {
     handleSubmit,
     formState: { errors },
   } = travelGuideForm;
-  const onSubmit = (form: TravelGuideForm) => {
-    console.log(form);
+  const onSubmit = async (form: TravelGuideForm) => {
+    await axios
+      .post(API_URL.travelGuide, form)
+      .then((res) => {
+        if (res && res.data) {
+          toast.success(msgStr[3]);
+          navigate("/");
+        }
+      })
+      .catch(console.error);
   };
   return (
     <PageContainer title="Travel Guide">

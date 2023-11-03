@@ -2,12 +2,14 @@ import { useAppSelector } from "@/app/hooks";
 import landingCar from "@/assets/images/landing/hi-ace.png";
 import blob from "@/assets/images/util/blob.svg";
 import Button from "@/components/buttons/Button";
+import { useNavigate } from "react-router-dom";
 
 export default function TopSection() {
   const {
     btns,
     landing: { top },
   } = useAppSelector((state) => state.language.lang);
+  const navigate = useNavigate();
   return (
     <section className="md:min-h-[500px] flex w-full mt-4 py-4 overflow-hidden">
       <div className="w-[55%] md:w-1/2">
@@ -18,7 +20,12 @@ export default function TopSection() {
           {top[1]}
         </p>
         <div className="md:flex-row flex flex-col items-start md:items-center gap-4 mt-4">
-          <Button theme="filled">{btns[0]}</Button>
+          <Button
+            theme="filled"
+            onClick={() => navigate("/services/car-rental")}
+          >
+            {btns[0]}
+          </Button>
         </div>
       </div>
       <div className="w-1/2 flex flex-col relative mt-28 z-[-1]">

@@ -1,5 +1,6 @@
 import { BookARideForm } from "@/@types/formData";
 import { useAppSelector } from "@/app/hooks";
+import Back from "@/components/buttons/BackBtn";
 import PageContainer from "@/containers/PageContainer";
 import { API_URL, bookARideDefaultValues as defaultValues } from "@/lib/consts";
 import { useCarByShortName } from "@/lib/hooks";
@@ -12,6 +13,7 @@ import CarDetails from "./CarDetails";
 export default function BookCarPage() {
   const {
     messages: { bookRide: msgStr },
+    btns,
   } = useAppSelector((state) => state.language.lang);
   const { shortName } = useParams();
 
@@ -34,11 +36,12 @@ export default function BookCarPage() {
     <PageContainer title={car?.displayName ?? "Book A Ride"}>
       {car ? (
         <FormProvider {...bookARideForm}>
+          <Back />
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="content-container flex flex-col"
           >
-            <h1>{car.displayName}</h1>
+            <h1 className="mt-4">{car.displayName}</h1>
             <div className="flex md:flex-row flex-col mt-8 w-full">
               <div className="w-full md:w-1/2">
                 <img

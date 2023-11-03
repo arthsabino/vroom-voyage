@@ -7,6 +7,7 @@ export const API_URL = {
   getBranchList: "/api/branch",
   createRent: "/api/rent",
   filterRent: "/api/rent/filter",
+  travelGuide: "/api/travelguide",
 };
 export const SCREENS = {
   sm: "640px",

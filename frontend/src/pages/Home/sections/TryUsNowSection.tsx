@@ -38,7 +38,7 @@ export default function TryUsNowSection() {
       <h2 className="text-black text-center my-8">{calendar[2]}</h2>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="py-6 px-8 shadow-lg rounded bg-white sm:flex-row flex flex-col items-start sm:items-center gap-8"
+        className="py-6 px-8 shadow-lg rounded bg-white lg:flex-row flex flex-col items-start lg:items-center gap-8"
       >
         <Dropdown
           icon={svgs.pin}

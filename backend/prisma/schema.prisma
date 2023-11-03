@@ -37,8 +37,8 @@ model Rent {
   endDate      DateTime
   branchId     String     @db.ObjectId
   branch       Branch     @relation(fields: [branchId], references: [id], onDelete: Cascade)
-  clientId     String    @db.ObjectId
-  client       Client    @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  clientId     String     @db.ObjectId
+  client       Client     @relation(fields: [clientId], references: [id], onDelete: Cascade)
   rentStatusId String     @db.ObjectId
   rentStatus   RentStatus @relation(fields: [rentStatusId], references: [id], onDelete: Cascade)
   carId        String     @db.ObjectId
@@ -48,17 +48,18 @@ model Rent {
 }
 
 model Client {
-  id               String       @id @default(auto()) @map("_id") @db.ObjectId
+  id               String        @id @default(auto()) @map("_id") @db.ObjectId
   fullName         String
   primaryContact   String
   secondaryContact String?
   primaryAddress   String?
   sourceOfIncome   String?
-  clientStatusId   String       @db.ObjectId
-  clientStatus     ClientStatus @relation(fields: [clientStatusId], references: [id], onDelete: Cascade)
-  createdAt        DateTime     @default(now())
-  updatedAt        DateTime     @updatedAt
+  clientStatusId   String        @db.ObjectId
+  clientStatus     ClientStatus  @relation(fields: [clientStatusId], references: [id], onDelete: Cascade)
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
   rent             Rent[]
+  TravelGuide      TravelGuide[]
 
   @@map("clients")
 }
@@ -91,4 +92,15 @@ model Branch {
   Rent      Rent[]
 
   @@map("branches")
+}
+
+model TravelGuide {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  clientId       String   @db.ObjectId
+  client         Client   @relation(fields: [clientId], references: [id])
+  travelLocation String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@map("travelguide")
 }
