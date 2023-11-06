@@ -1,16 +1,12 @@
-import express, { Response } from "express";
-import path from "path";
+import { Request, Response } from "express";
 import app from "./app";
 import env from "./lib/env";
-
-const __dirname1 = path.resolve();
-if (env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname1, "/frontend/build")));
-  app.get("*", (_, res: Response) => {
-    res.sendFile(path.resolve(__dirname1, "frontend", "build", "index.html"));
-  });
-} else {
-  app.listen(env.PORT, () => {
-    console.log("Server running on port: " + env.PORT);
+if (env.NODE_ENV !== "production") {
+  app.get("/", (req: Request, res: Response) => {
+    res.send("API is running");
   });
 }
+
+app.listen(env.PORT, () => {
+  console.log("Server running on port: " + env.PORT);
+});
