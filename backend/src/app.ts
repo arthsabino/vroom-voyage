@@ -1,5 +1,5 @@
 import "dotenv/config";
-import express from "express";
+import express, { NextFunction } from "express";
 import branchRoutes from "../routes/branchRoutes";
 import carRoutes from "../routes/carRoutes";
 import rentRoutes from "../routes/rentRoutes";
@@ -12,7 +12,7 @@ app.use("/api/branch", branchRoutes);
 app.use("/api/rent", rentRoutes);
 app.use("/api/travelguide", travelGuideRoutes);
 
-app.use((req, res, next) => {
+app.use((_, __, next: NextFunction) => {
   next(Error("Endpoint not found."));
 });
 

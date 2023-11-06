@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Response } from "express";
 import path from "path";
 import app from "./app";
 import env from "./lib/env";
@@ -6,7 +6,7 @@ import env from "./lib/env";
 const __dirname1 = path.resolve();
 if (env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname1, "/frontend/build")));
-  app.get("*", (req, res) => {
+  app.get("*", (_, res: Response) => {
     res.sendFile(path.resolve(__dirname1, "frontend", "build", "index.html"));
   });
 } else {
