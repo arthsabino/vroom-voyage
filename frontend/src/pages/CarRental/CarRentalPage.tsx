@@ -1,6 +1,7 @@
 import { Car } from "@/@types/car";
 import { BookARideForm } from "@/@types/formData";
 import { useAppSelector } from "@/app/hooks";
+import Loader from "@/components/Loader";
 import NoData from "@/components/NoData";
 import Button from "@/components/buttons/Button";
 import CarsCard from "@/components/cars/CarsCard";
@@ -32,6 +33,7 @@ export default function CarRentalPage() {
   const [availableCars, setAvailableCars] = useState<Car[]>([]);
   const [displayFilter, setDisplayFilter] = useState(false);
   const [displayResults, setDisplayResults] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     if (setValue && searchParams && branchList) {
       if (searchParams.get("pickup")) {
@@ -62,6 +64,7 @@ export default function CarRentalPage() {
   }, [setValue, searchParams, setSearchParams, branchList]);
 
   const onSubmit = async (form: BookARideForm) => {
+    setIsLoading(true);
     setDisplayResults(true);
     try {
       const res = await axios.get(
@@ -74,6 +77,8 @@ export default function CarRentalPage() {
       }
     } catch (error) {
       console.error(error);
+    } finally {
+      setIsLoading(false);
     }
   };
   return (
@@ -81,7 +86,7 @@ export default function CarRentalPage() {
       <FormProvider {...bookARideForm}>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="content-container flex flex-col mt-4 py-4 min-h-screen"
+          className="content-container flex flex-col mt-4 py-4"
         >
           <h1>{carRental[0]}</h1>
           {displayFilter && branchList ? (
@@ -96,19 +101,25 @@ export default function CarRentalPage() {
               </Button>
             </div>
           ) : null}
-          {displayResults ? (
-            availableCars.length > 0 ? (
-              <div className="grid sm:grid-cols-2 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 my-12 gap-4 w-full place-items-center">
-                {availableCars.map((c) => (
-                  <CarsCard car={c} key={c.id} />
-                ))}
-              </div>
+          <div className="relative h-full w-full min-h-screen mt-4">
+            {!isLoading ? (
+              displayResults ? (
+                availableCars.length > 0 ? (
+                  <div className="grid sm:grid-cols-2 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 my-12 gap-4 w-full place-items-center">
+                    {availableCars.map((c) => (
+                      <CarsCard car={c} key={c.id} />
+                    ))}
+                  </div>
+                ) : (
+                  <NoData content={common[1]} />
+                )
+              ) : (
+                <NoData content={common[2]} />
+              )
             ) : (
-              <NoData content={common[1]} />
-            )
-          ) : (
-            <NoData content={common[2]} />
-          )}
+              <Loader show={isLoading} />
+            )}
+          </div>
         </form>
       </FormProvider>
     </PageContainer>
