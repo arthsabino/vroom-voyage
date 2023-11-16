@@ -15,12 +15,15 @@ interface CalendarDropdownProps {
 
 const isInsideDate = (currDate: Date, startDate: Date, endDate: Date) => {
   return (
-    currDate.getFullYear() >= startDate.getFullYear() &&
-    currDate.getMonth() >= startDate.getMonth() &&
-    currDate.getDate() >= startDate.getDate() &&
-    currDate.getFullYear() <= endDate.getFullYear() &&
-    currDate.getMonth() <= endDate.getMonth() &&
-    currDate.getDate() <= endDate.getDate()
+    // currDate.getFullYear() >= startDate.getFullYear() &&
+    // currDate.getMonth() >= startDate.getMonth() &&
+    // currDate.getDate() >= startDate.getDate() &&
+    // currDate.getFullYear() <= endDate.getFullYear() &&
+    // currDate.getMonth() <= endDate.getMonth() &&
+    // currDate.getDate() <= endDate.getDate()
+
+    currDate.getTime() >= startDate.getTime() &&
+    currDate.getTime() <= endDate.getTime()
   );
 };
 
