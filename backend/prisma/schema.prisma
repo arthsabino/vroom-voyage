@@ -82,6 +82,7 @@ model Client {
 model ClientStatus {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   name      String
+  color     String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   Client    Client[]
@@ -92,6 +93,7 @@ model ClientStatus {
 model RentStatus {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   name      String
+  color     String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   Rent      Rent[]
@@ -126,6 +128,7 @@ model TravelGuide {
 model TravelGuideStatus {
   id          String        @id @default(auto()) @map("_id") @db.ObjectId
   name        String
+  color       String
   createdAt   DateTime      @default(now())
   updatedAt   DateTime      @updatedAt
   TravelGuide TravelGuide[]
