@@ -14,26 +14,26 @@ async function main() {
   });
   await prisma.clientStatus.createMany({
     data: [
-      { name: "NEW", color: "text-red-600" },
-      { name: "FOR REVIEW", color: "text-orange-600" },
-      { name: "REVIEWING", color: "text-cyan-300" },
-      { name: "APPROVED", color: "text-green-400" },
+      { name: "NEW" },
+      { name: "FOR REVIEW" },
+      { name: "REVIEWING" },
+      { name: "APPROVED" },
     ],
   });
   await prisma.rentStatus.createMany({
     data: [
-      { name: "PENDING", color: "text-red-600" },
-      { name: "REVIEWING", color: "text-orange-600" },
-      { name: "RETURNED", color: "text-cyan-300" },
-      { name: "RESERVED", color: "text-green-400" },
+      { name: "PENDING" },
+      { name: "REVIEWING" },
+      { name: "RETURNED" },
+      { name: "RESERVED" },
     ],
   });
   await prisma.travelGuideStatus.createMany({
     data: [
-      { name: "NEW", color: "text-red-600" },
-      { name: "PENDING", color: "text-orange-600" },
-      { name: "IN PROGRESS", color: "text-cyan-300" },
-      { name: "DONE", color: "text-green-400" },
+      { name: "NEW" },
+      { name: "PENDING" },
+      { name: "IN PROGRESS" },
+      { name: "DONE" },
     ],
   });
 }
