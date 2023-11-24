@@ -13,7 +13,6 @@ import CarDetails from "./CarDetails";
 export default function BookCarPage() {
   const {
     messages: { bookRide: msgStr },
-    btns,
   } = useAppSelector((state) => state.language.lang);
   const { shortName } = useParams();
 
