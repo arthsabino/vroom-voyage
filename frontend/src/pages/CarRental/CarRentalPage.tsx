@@ -105,7 +105,7 @@ export default function CarRentalPage() {
             {!isLoading ? (
               displayResults ? (
                 availableCars.length > 0 ? (
-                  <div className="grid sm:grid-cols-2 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 my-12 gap-4 w-full place-items-center">
+                  <div className="grid sm:grid-cols-2 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 my-12 gap-4 w-full place-items-stretch">
                     {availableCars.map((c) => (
                       <CarsCard car={c} key={c.id} />
                     ))}

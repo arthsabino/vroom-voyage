@@ -38,14 +38,14 @@ export default function CarsCard({ car }: CarsCardProps) {
         </div>
       </div>
       <div className="h-[2px] bg-desc my-4" />
-      <div className="flex flex-wrap gap-4 justify-between">
+      <div className="flex flex-wrap gap-4 justify-between mb-4">
         <CarDesc icon={svgs.seat} desc={`${car.seat}-${carStr[2]}`} />
         <CarDesc icon={svgs.transmission} desc={car.transmission} />
         <CarDesc icon={svgs.petrol} desc={car.petrol} />
       </div>
       <Button
         theme="filled"
-        className="mt-4 w-full"
+        className="mt-auto w-full"
         onClick={() => {
           navigate(`/book-car/${car.shortName}`);
         }}

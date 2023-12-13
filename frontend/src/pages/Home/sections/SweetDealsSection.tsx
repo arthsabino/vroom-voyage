@@ -31,7 +31,7 @@ export default function SweetDealsSection() {
         {sweetDeals[1]}
       </p>
       {cars.length > 0 ? (
-        <div className="grid sm:grid-cols-2 grid-cols-1 lg:grid-cols-3 md:grid-cols-2 my-12 gap-4 w-full place-items-center">
+        <div className="grid sm:grid-cols-2 grid-cols-1 lg:grid-cols-3 md:grid-cols-2 my-12 gap-4 w-full place-items-stretch">
           {cars.map((c) => (
             <CarsCard car={c} key={c.id} />
           ))}
