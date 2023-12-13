@@ -13,3 +13,27 @@ export const dateMMDDYYYYToTZ = (date: string) => {
   const dateArr = date.split("/").map((x) => parseInt(x));
   return new Date(dateArr[2], dateArr[0] - 1, dateArr[1]).toDateString();
 };
+
+export const getStartOfTheDay = (date: Date): Date => {
+  return new Date(
+    date.getFullYear(),
+    date.getMonth(),
+    date.getDate(),
+    0,
+    0,
+    0,
+    0
+  );
+};
+
+export const getEndOfTheDay = (date: Date): Date => {
+  return new Date(
+    date.getFullYear(),
+    date.getMonth(),
+    date.getDate(),
+    11,
+    59,
+    59,
+    59
+  );
+};

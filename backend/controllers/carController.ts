@@ -1,6 +1,7 @@
 import { RequestHandler } from "express";
 import { prisma } from "../src/lib/prisma";
 import { dateMMDDYYYYToTZ } from "../util/format";
+import { getReservedRentStatus } from "./rentStatusController";
 
 export const getCars: RequestHandler = async (req, res, next) => {
   try {
@@ -41,6 +42,7 @@ export const getAvailableCars: RequestHandler = async (req, res, next) => {
     const splitDate = (travelDate as string).split("-");
     const startDate = dateMMDDYYYYToTZ(splitDate[0]);
     const endDate = dateMMDDYYYYToTZ(splitDate[1]);
+    const reservedRentStatusFromDB = await getReservedRentStatus();
     const cars = await prisma.car.findMany({
       where: {
         rent: {
@@ -52,6 +54,7 @@ export const getAvailableCars: RequestHandler = async (req, res, next) => {
                 { startDate: { gte: startDate, lte: endDate } },
                 { endDate: { gte: startDate, lte: endDate } },
               ],
+              rentStatusId: reservedRentStatusFromDB?.id,
             },
           },
         },

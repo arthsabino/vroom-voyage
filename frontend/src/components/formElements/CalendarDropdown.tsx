@@ -1,5 +1,5 @@
 import { DateRange, InputProps } from "@/@types/formElements";
-import { dateToMMDDYYY } from "@/lib/format";
+import { dateToMMDDYYY, getEndOfTheDay, getStartOfTheDay } from "@/lib/format";
 import { useState } from "react";
 import Calendar from "react-calendar";
 import { svgs } from "../Image";
@@ -22,8 +22,8 @@ const isInsideDate = (currDate: Date, startDate: Date, endDate: Date) => {
     // currDate.getMonth() <= endDate.getMonth() &&
     // currDate.getDate() <= endDate.getDate()
 
-    currDate.getTime() >= startDate.getTime() &&
-    currDate.getTime() <= endDate.getTime()
+    currDate.getTime() >= getStartOfTheDay(startDate).getTime() &&
+    currDate.getTime() <= getEndOfTheDay(endDate).getTime()
   );
 };
 
